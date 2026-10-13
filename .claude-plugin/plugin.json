@@ -1,11 +1,15 @@
 {
   "name": "gumloop",
-  "description": "Create, run, and chat with your Gumloop agents, manage skills, and search your Company Brain.",
-  "version": "0.2.0",
+  "displayName": "Gumloop",
+  "version": "1.0.0",
+  "description": "Run and build your team's Gumloop agents, act in the apps your team connected to Gumloop, and search your Company Brain.",
   "author": {
     "name": "Gumloop",
-    "url": "https://gumloop.com"
+    "email": "support@gumloop.com",
+    "url": "https://www.gumloop.com"
   },
-  "homepage": "https://gumloop.com",
-  "license": "MIT"
+  "homepage": "https://docs.gumloop.com/mcp-server/overview",
+  "repository": "https://github.com/gumloop/gumloop-plugin",
+  "license": "MIT",
+  "keywords": ["gumloop", "agents", "ai-agents", "automation", "integrations", "mcp"]
 }
