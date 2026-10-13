@@ -26,7 +26,7 @@ Tools that accept `project_id` default to the personal workspace. When the user 
 
 ## Terminal
 
-In a client with a shell (Claude Code, Codex, Cursor), the `gumloop` CLI reaches the same account. Use it when the user asks for the CLI, when output must be piped or scripted, or when the `gumloop` MCP server isn't connected. Check `gumloop --version`; install with `curl -fsSL https://gumloop.com/cli/install.sh | sh` (macOS and Linux only), then `gumloop plugin install gumloop` installs the `gumloop-cli` skill with the full command reference. Read that skill before using unfamiliar commands.
+When the `gumloop` CLI is already installed (`gumloop --version` succeeds) and the client has a shell, it reaches the same account. Use it when the user asks for the CLI or when output must be piped or scripted. Its `gumloop-cli` skill, if present, has the command reference; otherwise run `gumloop <command> --help` before an unfamiliar command. Don't install the CLI yourself; when the user wants it, point them to https://docs.gumloop.com/cli/overview.
 
 ## Where to send the user
 
