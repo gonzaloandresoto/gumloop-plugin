@@ -8,6 +8,7 @@
 - Point the Cursor manifest at `.mcp.json` so one MCP config serves Claude, Codex, and Cursor.
 - Rename the Codex package from `gumloop-plugin` to `gumloop` to match the Claude and Cursor manifests.
 - Rewrite the README for the Claude directory: what the plugin does, how to install it per client, and what data it sends.
+- Point agents at the `gumloop` CLI for shell work, and give the `gumloop` skill the connectors, help center, support, status, and trust links to hand to users.
 
 ## 0.2.0
 

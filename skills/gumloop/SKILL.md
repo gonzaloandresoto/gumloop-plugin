@@ -24,6 +24,20 @@ Tools that accept `project_id` default to the personal workspace. When the user 
 - An error is a tool result shaped `{"error_status", "message", "traceback"}`. Report the tool name, the ID or query, and `message`. Omit `traceback`.
 - Reply with names, IDs, states, and Gumloop URLs. No raw payloads unless the user asks for JSON.
 
+## Terminal
+
+In a client with a shell (Claude Code, Codex, Cursor), the `gumloop` CLI reaches the same account. Use it when the user asks for the CLI, when output must be piped or scripted, or when the `gumloop` MCP server isn't connected. Check `gumloop --version`; install with `curl -fsSL https://gumloop.com/cli/install.sh | sh` (macOS and Linux only), then `gumloop plugin install gumloop` installs the `gumloop-cli` skill with the full command reference. Read that skill before using unfamiliar commands.
+
+## Where to send the user
+
+| For | Link |
+| --- | --- |
+| Connect or manage apps | https://www.gumloop.com/settings/profile/connectors |
+| Help center | https://docs.gumloop.com/help |
+| Support | support@gumloop.com |
+| Service status | https://status.gumloop.com |
+| Security and compliance | https://trust.gumloop.com |
+
 ## Admin and docs tools
 
 Available on a personal connection to an organization admin. `organization_id` comes from `list_organizations`.

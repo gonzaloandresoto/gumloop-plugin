@@ -35,7 +35,11 @@ The first tool call opens Gumloop's sign-in in your browser. The plugin never as
 
 Every tool call goes to `https://mcp.gumloop.com/gumloop/mcp` over HTTPS with the OAuth token your client obtained from Gumloop. The plugin sends the arguments of each call (agent names and IDs, messages to agents, search queries, and the arguments for a connected-app tool) and receives the results. It contains no scripts, hooks, or local servers, stores nothing itself, and reaches no other host. Calls to connected apps run inside Gumloop with your own connection; the plugin never handles those credentials. Gumloop's [privacy policy](https://www.gumloop.com/privacy-policy) and [terms](https://www.gumloop.com/tos) apply.
 
+## Terminal
+
+The `gumloop` CLI reaches the same account from a shell, with `--json` on every command. Install it with `curl -fsSL https://gumloop.com/cli/install.sh | sh` (macOS and Linux), then `gumloop plugin install gumloop` adds the `gumloop-cli` skill to the coding agents on your machine. See the [CLI docs](https://docs.gumloop.com/cli/overview).
+
 ## Links
 
-- [MCP server docs](https://docs.gumloop.com/mcp-server/overview)
-- [Help center](https://docs.gumloop.com/help)
+- [Docs](https://docs.gumloop.com) and [MCP server reference](https://docs.gumloop.com/mcp-server/overview)
+- [Help center](https://docs.gumloop.com/help) or support@gumloop.com
