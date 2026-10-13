@@ -11,5 +11,10 @@
   "homepage": "https://docs.gumloop.com/mcp-server/overview",
   "repository": "https://github.com/gumloop/gumloop-plugin",
   "license": "MIT",
-  "keywords": ["gumloop", "agents", "ai-agents", "automation", "integrations", "mcp"]
+  "keywords": ["gumloop", "agents", "ai-agents", "automation", "integrations", "mcp"],
+  "icon": "./assets/gumloop.png",
+  "documentationUrl": "https://docs.gumloop.com/mcp-server/overview",
+  "supportUrl": "https://docs.gumloop.com/help",
+  "privacyPolicyUrl": "https://www.gumloop.com/privacy-policy",
+  "termsOfServiceUrl": "https://www.gumloop.com/tos"
 }
