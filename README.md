@@ -37,7 +37,7 @@ Every tool call goes to `https://mcp.gumloop.com/gumloop/mcp` over HTTPS with th
 
 ## Terminal
 
-The `gumloop` CLI reaches the same account from a shell, with `--json` on every command. Install it with `curl -fsSL https://gumloop.com/cli/install.sh | sh` (macOS and Linux), then `gumloop plugin install gumloop` adds the `gumloop-cli` skill to the coding agents on your machine. See the [CLI docs](https://docs.gumloop.com/cli/overview).
+The `gumloop` CLI reaches the same account from a shell, with `--json` on every command, and ships its own `gumloop-cli` skill for coding agents. Install and sign-in steps are in the [CLI docs](https://docs.gumloop.com/cli/overview).
 
 ## Links
 
