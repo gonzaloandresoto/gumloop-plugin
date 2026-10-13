@@ -1,27 +1,37 @@
 ---
 name: gumloop
-description: Work with Gumloop agents, skills, runs, and Company Brain through the hosted MCP server.
+description: Conventions for every call to the gumloop MCP server (sign-in, team scope, confirmations, error shape, reply format). Use whenever a gumloop tool is about to be called, alongside the task-specific Gumloop skill.
 ---
 
-# Gumloop
+# Gumloop conventions
 
-Use this skill when the user asks to build, run, or inspect Gumloop agents, skills, sessions, or runs, or to search their Company Brain, through the hosted Gumloop MCP server.
+## Sign-in
 
-## Connection
+The client signs the user in through Gumloop's browser consent flow on first use. Never ask for an API key or token. When every tool fails with an authentication error, tell the user to reconnect the `gumloop` server in their client.
 
-- MCP server name: `gumloop`
-- Remote endpoint: `https://mcp.gumloop.com/gumloop/mcp`
-- Auth: let the MCP client drive the browser consent flow. Do not ask the user for raw access tokens.
+## Team scope
 
-## Working style
+Tools that accept `project_id` default to the personal workspace. When the user works in a team, call `list_teams` once and pass the chosen `team_id` as `project_id` on every later call. A 403 saying a tool "is not available on a Gumloop MCP connection scoped to a team" is final; report it, don't retry.
 
-- Start read-only when the user is exploring.
-- Ask for missing IDs, names, or inputs before starting a run or changing Gumloop state.
-- For long-running work, poll until the operation finishes or the user asks you to stop.
-- Confirm before destructive, admin-level, or third-party actions.
+## Before calling
 
-## Output
+- Take IDs and tool names from `list_agents`, `list_teams`, `list_mcp_servers`, and `list_mcp_server_tools`, never from memory.
+- Ask the user before a call that creates, updates, deletes, cancels, or retires anything, spends credits (an agent session, an evaluation), acts in another app, or reaches another person.
 
-- Summarize Gumloop IDs, names, statuses, timestamps, and URLs when available.
-- Keep raw tool payloads out of the final answer unless the user asks for JSON.
-- For errors, include the failed tool name and the Gumloop object ID or query involved.
+## Results
+
+- `create_agent_session` and `send_session_message` return when the agent finishes. After a client timeout, `get_session` has the result.
+- An error is a tool result shaped `{"error_status", "message", "traceback"}`. Report the tool name, the ID or query, and `message`. Omit `traceback`.
+- Reply with names, IDs, states, and Gumloop URLs. No raw payloads unless the user asks for JSON.
+
+## Admin and docs tools
+
+Available on a personal connection to an organization admin. `organization_id` comes from `list_organizations`.
+
+| Need | Tools |
+| --- | --- |
+| Audit trail | `get_audit_logs` |
+| CSV export | `export_data`, then `get_export_status` |
+| Team membership | `manage_team_members` |
+| Custom role membership and credit limits | `manage_custom_role_members`, `list_custom_role_credit_limits`, `get_custom_role_credit_limit`, `set_custom_role_credit_limit` |
+| Questions about Gumloop itself | `search_documentation`, `ask_gummie` |
